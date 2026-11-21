@@ -1,0 +1,9 @@
+{
+    "version": "2026.11.22",
+    "description": "Blyx framework and library sources with runnable examples and pinned dependencies.",
+    "homepage": "https://www.blyx-lang.space/packages",
+    "license": "MIT OR Apache-2.0",
+    "url": "https://github.com/Rahulchaube1/blyx-packages/releases/download/v2026.11.22/blyx-packages-2026.11.22.zip",
+    "hash": "d5a24a51a5ad3882afb81c40db68c360c2828d6d904a7745085c6898ee084057",
+    "notes": "Run an example with the Blyx compiler: blyxc native-run \"$dir\\share\\blyx\\moments\\main.blyx\""
+}

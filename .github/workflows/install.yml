@@ -57,3 +57,16 @@ jobs:
           $report = blyxtorch score $model $sample | ConvertFrom-Json
           if ($LASTEXITCODE -ne 0 -or $report.rows -ne 4 -or $report.mean_loss -ge 0.01) { throw 'Unexpected BlyxTorch loss' }
           exit 0
+      - name: Install and run the Blyx source collection
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          scoop install blyx/blyx-packages
+          if ($LASTEXITCODE -ne 0) { throw 'Blyx source collection install failed' }
+          $root = scoop prefix blyx-packages
+          $catalog = Get-Content -Raw -LiteralPath (Join-Path $root 'catalog.json') | ConvertFrom-Json
+          if ($catalog.packages.Count -ne 172) { throw 'Incomplete Blyx source collection' }
+          $project = Join-Path $root 'share/blyx/moments'
+          $actual = @(blyxc native-run (Join-Path $project 'main.blyx'))
+          $expected = @(Get-Content -LiteralPath (Join-Path $project 'expected.txt'))
+          if ($LASTEXITCODE -ne 0 -or ($actual -join ',' ) -ne ($expected -join ',')) { throw 'Moments example failed' }

@@ -33,6 +33,17 @@ The JSON report should show slope 2 and prediction 11. Use `scoop update` to ref
 
 Use the public release URL and match its digest against the release’s SHA256SUMS. Check the executable name and archive layout. Run the Windows install workflow on a pull request and confirm the installed shim executes the supplied fixture. The compiler and tool sources are maintained in their own Blyx repositories.
 
+## Install the framework and library sources
+
+The collection includes 65 frameworks and 107 libraries. Each project's vendor directory contains its original Blyx source and dependencies. With the Blyx compiler, Rust and a host linker installed, try Moments from PowerShell.
+
+```powershell
+scoop install blyx/blyx-packages
+blyxc native-run (Join-Path (scoop prefix blyx-packages) 'share/blyx/moments/main.blyx')
+```
+
+The example prints 3, 12 and 2 on separate lines. [Individual packages in Conda](https://rahulchaube1.github.io/blyx-packages/) · [Release files and checksums](https://github.com/Rahulchaube1/blyx-packages/releases)
+
 ## Connect with Rahul Chaube
 
 [Portfolio](https://www.rahulchaube1.com/) · [GitHub](https://github.com/Rahulchaube1) · [LinkedIn](https://www.linkedin.com/in/rahulchaube1) · [Hugging Face](https://huggingface.co/oncody) · [X](https://x.com/RahulChaube_) · [EverestQ](https://www.everestqai.com/) · [Contact](https://www.rahulchaube1.com/contact)
