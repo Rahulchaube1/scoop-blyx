@@ -42,9 +42,12 @@ jobs:
           $data = Join-Path (scoop prefix modelgate) 'fixtures/regression.csv'
           $out = modelgate $data --fn-cost 5
           if ($LASTEXITCODE -ne 1 -or ($out | ConvertFrom-Json).pass) { throw 'Missing release gate failure' }
-          if ((blyxtorch --version) -ne 'BlyxTorch 0.1.1') { throw 'Incorrect BlyxTorch version' }
+          if ((blyxtorch --version) -ne 'BlyxTorch 0.2.0') { throw 'Incorrect BlyxTorch version' }
           $logo = Join-Path (scoop prefix blyxtorch) 'assets/logo.png'
           if (!(Test-Path -LiteralPath $logo -PathType Leaf)) { throw 'Missing BlyxTorch logo' }
+          $queue = Join-Path (scoop prefix blyxtorch) 'projects/print-queue'
+          $heldout = blyxtorch train-score (Join-Path $queue 'train.csv') (Join-Path $queue 'holdout.csv') 180 0.03 4 adam 7 | ConvertFrom-Json
+          if ($LASTEXITCODE -ne 0 -or $heldout.rows -ne 6 -or $heldout.mean_loss -ge 0.01) { throw 'Print queue evaluation failed' }
           $source = blyxtorch emit 2,3 softmax relu
           if ($LASTEXITCODE -ne 0 -or !($source -match 'pub fn bt_predict')) { throw 'BlyxTorch template lookup failed' }
           $sample = Join-Path (scoop prefix blyxtorch) 'fixtures/xor.csv'

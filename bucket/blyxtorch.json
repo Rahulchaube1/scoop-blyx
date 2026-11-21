@@ -1,12 +1,12 @@
 {
-    "version": "0.1.1",
+    "version": "0.2.0",
     "description": "Train CPU neural networks with SGD and Adam and generate standalone Blyx models.",
     "homepage": "https://github.com/Rahulchaube1/blyxtorch",
     "license": "MIT OR Apache-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/Rahulchaube1/blyxtorch/releases/download/v0.1.1/blyxtorch-windows-x64.zip",
-            "hash": "6ba7e1b977039ab914e778c290627fd46e3b2e44b8beffae35c3afbbccac9fad"
+            "url": "https://github.com/Rahulchaube1/blyxtorch/releases/download/v0.2.0/blyxtorch-windows-x64.zip",
+            "hash": "73e5743847f4923236bf4ed95e79fbe304f086f24604e7a0ea14fecf5426b8ab"
         }
     },
     "bin": "blyxtorch.exe"
