@@ -8,13 +8,14 @@ With [Scoop](https://scoop.sh/) installed, run these commands in PowerShell.
 
 ```powershell
 scoop bucket add blyx https://github.com/Rahulchaube1/scoop-blyx
-scoop install blyx/blyx blyx/linearfit blyx/residualwatch blyx/modelgate
+scoop install blyx/blyx blyx/blyxtorch blyx/linearfit blyx/residualwatch blyx/modelgate
 blyxc --version
 ```
 
 | Command | Input and use |
 | --- | --- |
 | `blyxc` | Run Blyx source or compile a native application with Rust and a host linker. |
+| `blyxtorch` | Train a dense binary classifier or emit a custom Blyx network. [Training tutorial](https://doc.blyx-lang.space/guide/blyxtorch) |
 | `linearfit` | Fit a one-feature regression from a CSV headed `x,y`. |
 | `residualwatch` | Detect sustained errors in a chronological CSV headed `actual,predicted`. |
 | `modelgate` | Compare two classifiers on a paired CSV headed `label,baseline,candidate`. |
