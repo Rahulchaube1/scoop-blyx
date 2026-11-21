@@ -32,3 +32,11 @@ The JSON report should show slope 2 and prediction 11. Use `scoop update` to ref
 ## Update a manifest
 
 Use the public release URL and match its digest against the release’s SHA256SUMS. Check the executable name and archive layout. Run the Windows install workflow on a pull request and confirm the installed shim executes the supplied fixture. The compiler and tool sources are maintained in their own Blyx repositories.
+
+## Connect with Rahul Chaube
+
+[Portfolio](https://www.rahulchaube1.com/) · [GitHub](https://github.com/Rahulchaube1) · [LinkedIn](https://www.linkedin.com/in/rahulchaube1) · [Hugging Face](https://huggingface.co/oncody) · [X](https://x.com/RahulChaube_) · [EverestQ](https://www.everestqai.com/) · [Contact](https://www.rahulchaube1.com/contact)
+
+[Blyx website](https://www.blyx-lang.space/) · [BlyxTorch](https://www.blyx-lang.space/packages/blyxtorch) · [Handbook](https://doc.blyx-lang.space/) · [Community](https://www.blyx-lang.space/community)
+
+Support Rahul’s open-source work through [GitHub Sponsors](https://github.com/sponsors/Rahulchaube1) or [Buy Me a Coffee](https://buymeacoffee.com/rahulchaube).
