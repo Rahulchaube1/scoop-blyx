@@ -1,0 +1,40 @@
+name: Install and run the Blyx tools on Windows
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  install:
+    runs-on: windows-2025
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Scoop on the disposable runner
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $installer = Join-Path $env:RUNNER_TEMP 'install-scoop.ps1'
+          Invoke-WebRequest 'https://raw.githubusercontent.com/ScoopInstaller/Install/1e2f334083d609986d8c8bc9e31ae8e87c39fab4/install.ps1' -OutFile $installer
+          $dest = Join-Path $env:RUNNER_TEMP 'scoop'
+          & $installer -RunAsAdmin -ScoopDir $dest
+          if ($LASTEXITCODE -ne 0) { throw 'Could not install Scoop' }
+          "SCOOP=$dest" | Out-File $env:GITHUB_ENV -Append
+          (Join-Path $dest 'shims') | Out-File $env:GITHUB_PATH -Append
+      - name: Install from the bucket and verify the command shims
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $PSNativeCommandUseErrorActionPreference = $false
+          scoop bucket add blyx $env:GITHUB_WORKSPACE
+          if ($LASTEXITCODE -ne 0) { throw 'Could not add the bucket' }
+          scoop install blyx/blyx blyx/linearfit blyx/residualwatch blyx/modelgate
+          if ($LASTEXITCODE -ne 0) { throw 'Could not install all four manifests' }
+          if ((blyxc --version) -ne 'blyxc 0.2.1') { throw 'Incorrect compiler version' }
+          $data = Join-Path (scoop prefix linearfit) 'fixtures/line.csv'
+          $out = linearfit $data --predict 5
+          if ($LASTEXITCODE -ne 0 -or ($out | ConvertFrom-Json).prediction -ne 11) { throw 'Regression prediction failed' }
+          $data = Join-Path (scoop prefix residualwatch) 'fixtures/shift.csv'
+          $out = residualwatch $data --reference 3 --limit 3
+          if ($LASTEXITCODE -ne 1 -or ($out | ConvertFrom-Json).first_alert_row -ne 5) { throw 'Missing residual alert' }
+          $data = Join-Path (scoop prefix modelgate) 'fixtures/regression.csv'
+          $out = modelgate $data --fn-cost 5
+          if ($LASTEXITCODE -ne 1 -or ($out | ConvertFrom-Json).pass) { throw 'Missing release gate failure' }
+          exit 0

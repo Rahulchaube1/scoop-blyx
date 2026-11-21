@@ -1,0 +1,13 @@
+{
+    "version": "0.1.2",
+    "description": "Compare two classifiers and gate release on error costs and Brier score.",
+    "homepage": "https://github.com/Rahulchaube1/blyx-modelgate",
+    "license": "MIT OR Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/Rahulchaube1/blyx-modelgate/releases/download/v0.1.2/modelgate-windows-x64.zip",
+            "hash": "831abb53a401beaf983ac9a7e069fa9e8ee58ae1d446e972d3889e5de46d2b9a"
+        }
+    },
+    "bin": "modelgate.exe"
+}

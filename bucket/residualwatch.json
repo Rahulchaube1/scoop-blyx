@@ -1,0 +1,13 @@
+{
+    "version": "0.1.0",
+    "description": "Monitor changes in model prediction errors.",
+    "homepage": "https://github.com/Rahulchaube1/blyx-residualwatch",
+    "license": "MIT OR Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/Rahulchaube1/blyx-residualwatch/releases/download/v0.1.0/residualwatch-windows-x64.zip",
+            "hash": "841c82971ce0cc95f8b48e095689eff0ec234fc5d6885e8e7f01d378a625584d"
+        }
+    },
+    "bin": "residualwatch.exe"
+}
