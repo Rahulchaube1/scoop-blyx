@@ -42,7 +42,8 @@ jobs:
           $data = Join-Path (scoop prefix modelgate) 'fixtures/regression.csv'
           $out = modelgate $data --fn-cost 5
           if ($LASTEXITCODE -ne 1 -or ($out | ConvertFrom-Json).pass) { throw 'Missing release gate failure' }
-          if ((blyxtorch --version) -ne 'BlyxTorch 0.2.0') { throw 'Incorrect BlyxTorch version' }
+          if ((blyxtorch --version) -ne 'BlyxTorch 0.3.0') { throw 'Incorrect BlyxTorch version' }
+          if (-not ((blyxtorch layer-demo) -match 'transformer loss')) { throw 'Missing transformer demo' }
           $logo = Join-Path (scoop prefix blyxtorch) 'assets/logo.png'
           if (!(Test-Path -LiteralPath $logo -PathType Leaf)) { throw 'Missing BlyxTorch logo' }
           $queue = Join-Path (scoop prefix blyxtorch) 'projects/print-queue'
