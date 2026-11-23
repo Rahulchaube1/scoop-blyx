@@ -1,12 +1,12 @@
 {
-    "version": "0.3.0",
-    "description": "Train CPU convolutions, transformers and sparse embeddings in Blyx.",
+    "version": "0.4.0",
+    "description": "Train Blyx classifiers and regressors on CPU or Vulkan GPU and export convolution and attention gradients.",
     "homepage": "https://github.com/Rahulchaube1/blyxtorch",
     "license": "MIT OR Apache-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/Rahulchaube1/blyxtorch/releases/download/v0.3.0/blyxtorch-windows-x64.zip",
-            "hash": "bec7e2b7b1b62fe4718f9cd9f92f5f25af7acd2680459e3329a87695b4661442"
+            "url": "https://github.com/Rahulchaube1/blyxtorch/releases/download/v0.4.0/blyxtorch-windows-x64.zip",
+            "hash": "fab4bf936b880e98c938e0045f9fc9efb84eadde9a50e8d6d79f02a1e47c6f92"
         }
     },
     "bin": "blyxtorch.exe"
