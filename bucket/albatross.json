@@ -1,0 +1,13 @@
+{
+    "homepage": "https://github.com/Rahulchaube1/blyx-albatross",
+    "license": "MIT OR Apache-2.0",
+    "version": "0.2.0",
+    "description": "Plan build capacity and sharded model training memory.",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/Rahulchaube1/blyx-albatross/releases/download/v0.2.0/albatross-windows-x64.zip",
+            "hash": "83c4734f050556f3954c00fb48adedfae6e8f094cbe978c54e7708afb2b447d7"
+        }
+    },
+    "bin": "albatross.exe"
+}

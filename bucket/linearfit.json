@@ -1,13 +1,16 @@
 {
-    "version": "0.1.1",
-    "description": "Fit a linear or ridge regression to a numeric CSV.",
+    "version": "0.2.0",
+    "description": "Fit linear, ridge and factored bilinear regressions in Blyx.",
     "homepage": "https://github.com/Rahulchaube1/blyx-linearfit",
     "license": "MIT OR Apache-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/Rahulchaube1/blyx-linearfit/releases/download/v0.1.1/linearfit-windows-x64.zip",
-            "hash": "524a844138234958fb9e117a878b03d540b32a4ac63a44768b5fd1483978ae0f"
+            "url": "https://github.com/Rahulchaube1/blyx-linearfit/releases/download/v0.2.0/linearfit-windows-x64.zip",
+            "hash": "0f9023811494bac2b0e8513856a406f2ed72201e114e0108f2ec79a87705a16c"
         }
     },
-    "bin": "linearfit.exe"
+    "bin": [
+        "linearfit.exe",
+        "pair-study.exe"
+    ]
 }

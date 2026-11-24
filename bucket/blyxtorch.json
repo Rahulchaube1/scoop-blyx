@@ -1,13 +1,16 @@
 {
-    "version": "0.4.0",
-    "description": "Train Blyx classifiers and regressors on CPU or Vulkan GPU and export convolution and attention gradients.",
+    "version": "0.5.0",
+    "description": "Train neural networks and differentiate quantum circuits in Blyx.",
     "homepage": "https://github.com/Rahulchaube1/blyxtorch",
     "license": "MIT OR Apache-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/Rahulchaube1/blyxtorch/releases/download/v0.4.0/blyxtorch-windows-x64.zip",
-            "hash": "fab4bf936b880e98c938e0045f9fc9efb84eadde9a50e8d6d79f02a1e47c6f92"
+            "url": "https://github.com/Rahulchaube1/blyxtorch/releases/download/v0.5.0/blyxtorch-windows-x64.zip",
+            "hash": "e3ed1933dcf2ce79dbb97e6dc905ed268cdd9a233065b35e04117ad4d339bc2a"
         }
     },
-    "bin": "blyxtorch.exe"
+    "bin": [
+        "blyxtorch.exe",
+        "quantum-study.exe"
+    ]
 }

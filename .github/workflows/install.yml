@@ -30,9 +30,13 @@ jobs:
           if ($LASTEXITCODE -ne 0) { throw 'Could not fetch the manifests under test' }
           git -C $bucket checkout --detach FETCH_HEAD
           if ($LASTEXITCODE -ne 0) { throw 'Could not select the manifests under test' }
-          scoop install blyx/blyx blyx/blyxtorch blyx/linearfit blyx/residualwatch blyx/modelgate
+          scoop install blyx/blyx blyx/blyxtorch blyx/linearfit blyx/albatross blyx/kinglet blyx/chaffinch blyx/residualwatch blyx/modelgate
           if ($LASTEXITCODE -ne 0) { throw 'Could not install the Blyx manifests' }
           if ((blyxc --version) -ne 'blyxc 0.2.1') { throw 'Incorrect compiler version' }
+          if ((albatross state 2199023255552 512 0 3 2 2 12) -ne '68719476736') { throw 'Training memory calculation failed' }
+          if ((kinglet range 2199023255552 2 1073741824 1099511627774 5 1 | ConvertFrom-Json).length -ne 6) { throw 'Checkpoint slice failed' }
+          $samples = Join-Path (scoop prefix chaffinch) 'fixtures'
+          if ((chaffinch reduce 4 (Join-Path $samples 'worker-a.csv') (Join-Path $samples 'worker-b.csv'))[0] -ne '7,0.25') { throw 'Gradient merge failed' }
           $data = Join-Path (scoop prefix linearfit) 'fixtures/line.csv'
           $out = linearfit $data --predict 5
           if ($LASTEXITCODE -ne 0 -or ($out | ConvertFrom-Json).prediction -ne 11) { throw 'Regression prediction failed' }
@@ -42,7 +46,7 @@ jobs:
           $data = Join-Path (scoop prefix modelgate) 'fixtures/regression.csv'
           $out = modelgate $data --fn-cost 5
           if ($LASTEXITCODE -ne 1 -or ($out | ConvertFrom-Json).pass) { throw 'Missing release gate failure' }
-          if ((blyxtorch --version) -ne 'BlyxTorch 0.4.0') { throw 'Incorrect BlyxTorch version' }
+          if ((blyxtorch --version) -ne 'BlyxTorch 0.5.0') { throw 'Incorrect BlyxTorch version' }
           if (-not ((blyxtorch layer-demo) -match 'transformer loss')) { throw 'Missing transformer demo' }
           $logo = Join-Path (scoop prefix blyxtorch) 'assets/logo.png'
           if (!(Test-Path -LiteralPath $logo -PathType Leaf)) { throw 'Missing BlyxTorch logo' }

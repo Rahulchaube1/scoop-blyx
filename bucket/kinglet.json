@@ -1,0 +1,13 @@
+{
+    "homepage": "https://github.com/Rahulchaube1/blyx-kinglet",
+    "license": "MIT OR Apache-2.0",
+    "version": "0.2.0",
+    "description": "Plan HTTP ranges and tensor checkpoint slices.",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/Rahulchaube1/blyx-kinglet/releases/download/v0.2.0/kinglet-windows-x64.zip",
+            "hash": "4375a2e9a8877183ac3d62b539c429a3578f669b73fdd11d9fd081c3a08b9a9f"
+        }
+    },
+    "bin": "kinglet.exe"
+}

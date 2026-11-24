@@ -1,0 +1,13 @@
+{
+    "homepage": "https://github.com/Rahulchaube1/blyx-chaffinch",
+    "license": "MIT OR Apache-2.0",
+    "version": "0.2.0",
+    "description": "Merge count streams and sparse gradient sums.",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/Rahulchaube1/blyx-chaffinch/releases/download/v0.2.0/chaffinch-windows-x64.zip",
+            "hash": "16d863a3cca37a1872982f69f8dc228ec83c7d08d172ee8a166416b161b80d6f"
+        }
+    },
+    "bin": "chaffinch.exe"
+}
