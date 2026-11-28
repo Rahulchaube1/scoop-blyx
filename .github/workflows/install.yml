@@ -32,7 +32,8 @@ jobs:
           if ($LASTEXITCODE -ne 0) { throw 'Could not select the manifests under test' }
           scoop install blyx/blyx blyx/blyxtorch blyx/linearfit blyx/albatross blyx/kinglet blyx/chaffinch blyx/residualwatch blyx/modelgate
           if ($LASTEXITCODE -ne 0) { throw 'Could not install the Blyx manifests' }
-          if ((blyxc --version) -ne 'blyxc 0.2.1') { throw 'Incorrect compiler version' }
+          $compiler = Get-Content (Join-Path $bucket 'bucket/blyx.json') -Raw | ConvertFrom-Json
+          if ((blyxc --version) -ne "blyxc $($compiler.version)") { throw 'Incorrect compiler version' }
           if ((albatross state 2199023255552 512 0 3 2 2 12) -ne '68719476736') { throw 'Training memory calculation failed' }
           if ((kinglet range 2199023255552 2 1073741824 1099511627774 5 1 | ConvertFrom-Json).length -ne 6) { throw 'Checkpoint slice failed' }
           $samples = Join-Path (scoop prefix chaffinch) 'fixtures'

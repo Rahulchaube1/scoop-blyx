@@ -1,12 +1,12 @@
 {
-    "version": "0.2.2",
+    "version": "0.2.3",
     "description": "Compile and run Blyx programs.",
     "homepage": "https://www.blyx-lang.space/",
     "license": "MIT OR Apache-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/Rahulchaube1/blyxxxx/releases/download/v0.2.2/blyx-v0.2.2-x86_64-pc-windows-msvc.zip",
-            "hash": "e2e38ed9bac13b67d698538715abab1e068b4ef35cba77dd74f1ae7b7277e9bd"
+            "url": "https://github.com/Rahulchaube1/blyxxxx/releases/download/v0.2.3/blyx-v0.2.3-x86_64-pc-windows-msvc.zip",
+            "hash": "d612afc1d5f45f855becb5bd2ae262a3a51a577bfe6144ff3c5562b46af13e9c"
         }
     },
     "bin": "blyxc.exe"
